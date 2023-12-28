@@ -46,7 +46,7 @@ jobs:
           yarn build
       - name: Deploy to CDN
         run: |
-          ls ./dist
-          aws s3 sync ./dist ${{ secrets.S3_BUCKET }} --delete --exact-timestamps --cache-control max-age=86400
+          ls ./build
+          aws s3 sync ./build ${{ secrets.S3_BUCKET }} --delete --exact-timestamps --cache-control max-age=86400
           aws cloudfront create-invalidation --distribution-id ${{ secrets.CDN_ID }} --paths '/*'
       - run: echo "This job's status is ${{ job.status }}."
