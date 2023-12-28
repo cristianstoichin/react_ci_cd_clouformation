@@ -50,7 +50,7 @@ jobs:
             aws cloudformation deploy \
             --template-file ./infra/spa.yml \
             --stack-name react-spa-stack \
-            --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
+            --parameter-overrides AcmCertificateArn=${{ secrets.CertArn }} HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 
