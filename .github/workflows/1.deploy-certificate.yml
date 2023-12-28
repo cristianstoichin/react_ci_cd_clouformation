@@ -1,4 +1,4 @@
-name: Deploy Certificate
+name: Step 1 Deploy Certificate
 on:
   workflow_dispatch:
     inputs:
@@ -50,7 +50,7 @@ jobs:
             aws cloudformation deploy \
             --template-file ./infra/certificate.yml \
             --stack-name react-certificate-stack \
-            --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
+            --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react-demo \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 

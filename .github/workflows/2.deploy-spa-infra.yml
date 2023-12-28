@@ -1,4 +1,4 @@
-name: Deploy SPA Infra
+name: Step 2 Deploy SPA Infra
 on:
   workflow_dispatch:
     inputs:
@@ -50,7 +50,7 @@ jobs:
             aws cloudformation deploy \
             --template-file ./infra/spa.yml \
             --stack-name react-spa-stack \
-            --parameter-overrides AcmCertificateArn=${{ secrets.CertArn }} HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
+            --parameter-overrides AcmCertificateArn=${{ secrets.CertArn }} HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react-demo \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 
