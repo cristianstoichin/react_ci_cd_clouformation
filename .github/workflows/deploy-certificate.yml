@@ -50,7 +50,7 @@ jobs:
             aws cloudformation deploy \
             --template-file ./infra/certificate.yml \
             --stack-name react-certificate-stack \
-            --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react-demo \
+            --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 
