@@ -43,7 +43,7 @@ jobs:
       - name: Update Timestamp for variables
         run: |
           if [ "${{ github.event.inputs.action }}" = "Validate" ]; then
-            aws cloudformation validate-template --template-body ../../infra/certificate.yml
+            aws cloudformation validate-template --template-body file://../../infra/certificate.yml
           fi
         
           if [ "${{ github.event.inputs.action }}" = "Deploy" ]; then
