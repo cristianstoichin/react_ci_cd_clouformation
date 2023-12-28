@@ -23,6 +23,10 @@ GitHub Actions are set up for continuous integration and deployment. Upon pushin
 2. Run tests (if any).
 3. Deploy the application to AWS (if on the main branch).
 
+Infrastructure details [here](/infra/readme.md).
+
+CI-CD details [here](/.github/workflows/readme.md).
+
 ## Contributing
 We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information on how you can contribute to this project.
 
