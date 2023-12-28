@@ -1,4 +1,4 @@
-name: Deploy Certificate
+name: Deploy SPA Infra
 on:
   workflow_dispatch:
     inputs:
@@ -18,7 +18,7 @@ on:
         - us-east-1
         - us-west-2
 env:
-  APP_NAME: Deploy Certificate
+  APP_NAME: Deploy spa
   TAG: ${{ github.sha }}
   BRANCH: ${{ github.ref }}
 jobs:
@@ -43,18 +43,18 @@ jobs:
       - name: Deploy resource
         run: |
           if [ "${{ github.event.inputs.action }}" = "Validate" ]; then
-            aws cloudformation validate-template --template-body file://infra/certificate.yml --region ${{ github.event.inputs.region }} --no-paginate
+            aws cloudformation validate-template --template-body file://infra/spa.yml --region ${{ github.event.inputs.region }} --no-paginate
           fi
         
           if [ "${{ github.event.inputs.action }}" = "Deploy" ]; then
             aws cloudformation deploy \
-            --template-file ./infra/certificate.yml \
-            --stack-name react-certificate-stack \
+            --template-file ./infra/spa.yml \
+            --stack-name react-spa-stack \
             --parameter-overrides HostedZoneId=${{ secrets.HostedZoneId }} HostedZoneName=${{ secrets.HostedZoneName }} SubDomainName=react \
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 
           if [ "${{ github.event.inputs.action }}" = "Destroy" ]; then
-            aws cloudformation delete-stack --stack-name react-certificate-stack
+            aws cloudformation delete-stack --stack-name react-spa-stack
           fi
       - run: echo "This job's status is ${{ job.status }}."
