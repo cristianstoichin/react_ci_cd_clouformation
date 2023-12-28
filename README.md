@@ -20,10 +20,6 @@ Welcome to our React Hello World example repository. This project is designed to
 Follow these [steps](/README-App.md) to run the project locally.
 
 ## Continuous Integration and Deployment
-GitHub Actions are set up for continuous integration and deployment. Upon pushing code to the repository, the GitHub Actions workflows will:
-1. Install dependencies.
-2. Run tests (if any).
-3. Deploy the application to AWS (if on the main branch).
 
 Infrastructure details [here](/infra/readme.md).
 
