@@ -9,7 +9,7 @@ on:
         options: 
         - Validate
         - Deploy
-        - Delete
+        - Destroy
       region:
         type: choice 
         description: Action
@@ -54,7 +54,7 @@ jobs:
             --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM
           fi
 
-          if [ "${{ github.event.inputs.action }}" = "Deploy" ]; then
-            aws cloudformation validate-template --template-body ../../infra/certificate.yml
+          if [ "${{ github.event.inputs.action }}" = "Destroy" ]; then
+          aws cloudformation delete-stack --stack-name react-certificate-stack
           fi
       - run: echo "This job's status is ${{ job.status }}."
