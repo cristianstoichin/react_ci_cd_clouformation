@@ -40,8 +40,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Update Timestamp for variables
+      - name: Deploy resource
         run: |
+          ls
           if [ "${{ github.event.inputs.action }}" = "Validate" ]; then
             aws cloudformation validate-template --template-body file://../../infra/certificate.yml
           fi
