@@ -43,7 +43,7 @@ jobs:
       - name: Deploy resource
         run: |
           if [ "${{ github.event.inputs.action }}" = "Validate" ]; then
-            aws cloudformation validate-template --template-body file://infra/certificate.yml
+            aws cloudformation validate-template --template-body file://infra/certificate.yml --region ${{ github.event.inputs.region }} --debug
           fi
         
           if [ "${{ github.event.inputs.action }}" = "Deploy" ]; then
