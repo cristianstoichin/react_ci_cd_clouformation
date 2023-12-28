@@ -8,6 +8,14 @@ on:
         required: true
         options: 
         - Deploy
+        - Destroy
+      region:
+        type: choice 
+        description: Action
+        required: true
+        options: 
+        - us-east-1
+        - us-west-2
 env:
   APP_NAME: Deploy spa
   TAG: ${{ github.sha }}
