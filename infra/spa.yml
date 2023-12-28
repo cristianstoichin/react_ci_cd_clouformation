@@ -21,6 +21,7 @@ Parameters:
   AllowedOrigins:
     Type: String
     Description: List of comma separated allowed methods.
+    Default: '*'
   SubDomainName:
     Type: String
     AllowedPattern: (?!-)[a-zA-Z0-9-.]{1,63}(?<!-)
