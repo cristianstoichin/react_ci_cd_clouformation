@@ -28,7 +28,7 @@ Infrastructure details [here](/infra/readme.md).
 CI-CD details [here](/.github/workflows/readme.md).
 
 ## Contributing
-We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) for more information on how you can contribute to this project.
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING) for more information on how you can contribute to this project.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
