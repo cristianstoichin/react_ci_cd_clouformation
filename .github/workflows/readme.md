@@ -33,3 +33,15 @@ Before running the Job (manual trigger), you must first have the following Githu
 4. `HostedZoneId` and `HostedZoneName`
    - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to validate the ssl certificate.
 5. `SubDomainName' this can also be a secret but in this example I simply hardcoded the value. This must be your desired subdomain name for the website. Ex: react-demo.  
+
+#### AWS Route53 Example
+
+<p align="center">
+  <img src="../../assets/hosted-zone.png" alt="Ec2">
+</p>
+
+#### Github Secrets Example
+
+<p align="center">
+  <img src="../../assets/secrets.png" alt="Ec2">
+</p>
