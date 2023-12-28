@@ -14,12 +14,10 @@ Before running the Job (manual trigger), you must first have the following Githu
    - This must be an existing Role in your AWS account that will allow the job to run the `aws cloudformation deploy` command.
       - Typically, this role is granted Admin permissions in AWS. However, be aware that this could pose a security risk. AWS recommends using the least privileged permissions for enhanced security.
 2. `HostedZoneId` and `HostedZoneName`
-   - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to create a CNAME with a friendly name for your website.
-   -  
+   - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to validate the ssl certificate.
+3. `SubDomainName' this can also be a secret but in this example I simply hardcoded the value. This must be your desired subdomain name for the website. Ex: react-demo.  
 
-`Before deploying this to your AWS account, you must have a pre-existing Route53 public hosted zone in place, which is required for validating the certificate.`
-
-### [spa.yml](/spa.yml)
+### [deploy-spa-infra.yml](/deploy-spa-infra.yml)
 
 This template is designed to create the following resources in your AWS account:
 
