@@ -19,12 +19,15 @@ Before running the Job (manual trigger), you must first have the following Githu
 
 ### [deploy-spa-infra.yml](/deploy-spa-infra.yml)
 
-This template is designed to create the following resources in your AWS account:
+The Github Action job allows you to either Validate, Deploy or Destroy the cloudformation template. You must also select a region where you want it to be deployed. 
 
-1. Private S3 bucket
-2. Cloudfront distibution pointing to your S3 bucket from above.
-3. Origin access point to allow S3 bucket access to the CDN.
-4. Route53 dns friendly name for CDN.
+This Github Action is designed to create the resources defined [here](https://github.com/cristianstoichin/react_ci_cd_clouformation/blob/main/infra/readme.md#spayml)
 
-`Before deploying this to your AWS account, you must have a pre-existing Route53 public hosted zone in place, which is required for creating the Route53 dns CNAME.`
-   
+Before running the Job (manual trigger), you must first have the following Github Repo Secrets setup:
+
+1. `DEPLOYMENT_ROLE_ARN`
+   - This must be an existing Role in your AWS account that will allow the job to run the `aws cloudformation deploy` command.
+      - Typically, this role is granted Admin permissions in AWS. However, be aware that this could pose a security risk. AWS recommends using the least privileged permissions for enhanced security.
+2. `HostedZoneId` and `HostedZoneName`
+   - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to validate the ssl certificate.
+3. `SubDomainName' this can also be a secret but in this example I simply hardcoded the value. This must be your desired subdomain name for the website. Ex: react-demo.  
