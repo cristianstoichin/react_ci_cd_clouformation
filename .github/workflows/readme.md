@@ -17,7 +17,7 @@ Before running the Job (manual trigger), you must first have the following Githu
    - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to validate the ssl certificate.
 3. `SubDomainName' this can also be a secret but in this example I simply hardcoded the value. This must be your desired subdomain name for the website. Ex: react-demo.  
 
-### [deploy-spa-infra.yml](/2.deploy-spa-infra.yml)
+### [deploy-spa-infra.yml](2.deploy-spa-infra.yml)
 
 The Github Action job allows you to either Validate, Deploy or Destroy the cloudformation template. You must also select a region where you want it to be deployed. 
 
@@ -34,7 +34,7 @@ Before running the Job (manual trigger), you must first have the following Githu
    - This is a pre-requisite before running the deployment. You must have a Route53 hosted zone (public) that will be used to validate the ssl certificate.
 4. `SubDomainName' this can also be a secret but in this example I simply hardcoded the value. This must be your desired subdomain name for the website. Ex: react-demo.  
 
-### [build-deploy-spa-app.yml](/3.build-deploy-spa-app.yml)
+### [build-deploy-spa-app.yml](3.build-deploy-spa-app.yml)
 
 The Github Action job allows you to manually `Deploy` a new version of the SPA react application by `branch`.
 
