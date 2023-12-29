@@ -40,7 +40,6 @@ The Github Action job allows you to manually `Deploy` a new version of the SPA r
 
 Before running the Job (manual trigger), you must first have the following Github Repo Secrets setup:
 
-
 1. `DEPLOYMENT_ROLE_ARN`
    - This must be an existing Role in your AWS account that will allow the job to run the `aws cloudformation deploy` command.
       - Typically, this role is granted Admin permissions in AWS. However, be aware that this could pose a security risk. AWS recommends using the least privileged permissions for enhanced security.
@@ -49,6 +48,22 @@ Before running the Job (manual trigger), you must first have the following Githu
 3. `CDN_ID`
    - This is the AWS Cloudfront Distribution ID that you can retrieve after the `deploy-spa-infra.yml` completes successfully.
 
+### [4.build-deploy-on-release.yml](4.build-deploy-on-release.yml)
+
+The Github Action job allows you to `Auto-Deploy` a new version of the SPA react application when a new `Release` is created.
+
+Before setting up this job, you must first have the following Github Repo Secrets setup:
+
+1. `DEPLOYMENT_ROLE_ARN`
+   - This must be an existing Role in your AWS account that will allow the job to run the `aws cloudformation deploy` command.
+      - Typically, this role is granted Admin permissions in AWS. However, be aware that this could pose a security risk. AWS recommends using the least privileged permissions for enhanced security.
+2. `S3_BUCKET`
+   - This is in the following format: `s3://{bucket-name}}`. In my case is s3://react-terraform.dash-demo.click
+3. `CDN_ID`
+   - This is the AWS Cloudfront Distribution ID that you can retrieve after the `deploy-spa-infra.yml` completes successfully.
+4. `AWS_REGION`
+   - This is required by the `aws-actions/configure-aws-credentials@v1` Github action that connects to your AWS account to get temporary credentials to be able to deploy the changes to the S3 bucket.
+     
 #### AWS Route53 Example
 
 <p align="center">
